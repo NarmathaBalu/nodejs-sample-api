@@ -19,7 +19,7 @@ pipeline {
         stage('Build Image with Podman') {
             steps {
                 sh '''
-                  podman build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+                  /opt/homebrew/bin/podman build -t ${IMAGE_NAME}:${IMAGE_TAG} .
                 '''
             }
         }
@@ -27,8 +27,8 @@ pipeline {
         stage('Deploy API Locally') {
             steps {
                 sh '''
-                  podman rm -f ${CONTAINER_NAME} || true
-                  podman run -d \
+                  opt/homebrew/bin/podman rm -f ${CONTAINER_NAME} || true
+                  opt/homebrew/bin/podman run -d \
                     --name ${CONTAINER_NAME} \
                     -p 3000:3000 \
                     ${IMAGE_NAME}:${IMAGE_TAG}
