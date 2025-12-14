@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Source') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<YOUR_GITHUB_USERNAME>/nodejs-sample-api.git'
+                    url: 'https://github.com/NarmathaBalu/nodejs-sample-api.git'
             }
         }
 
